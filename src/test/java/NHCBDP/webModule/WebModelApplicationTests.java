@@ -1,4 +1,4 @@
-package NHCBDP.webModel;
+package NHCBDP.webModule;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
