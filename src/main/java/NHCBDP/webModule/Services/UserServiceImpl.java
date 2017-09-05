@@ -20,16 +20,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String isLogin(User user) {
-        return userDao.selectByUserNameAndPassword(user) != null?"成功":"失败";
+        return userDao.selectByUserNameAndPassword(user) != null?"success":"error";
     }
 
     @Override
     public String isRegister(User user) {
 
         if (userDao.selectByUserNameAndPassword(user)!=null)
-            return "用户已存在";
+            return "User already exist!";
 
-        return userDao.insert(user) == 1 ?"成功":"失败";
+        return userDao.insert(user) == 1 ?"success":"error";
     }
 
 }

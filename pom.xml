@@ -5,9 +5,8 @@
 
 	<groupId>NHCBDP</groupId>
 	<artifactId>webModule</artifactId>
-	<version>0.0.1-beat</version>
+	<version>1.0</version>
 	<packaging>war</packaging>
-
 	<name>webModule</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -95,11 +94,23 @@
 
 
 	<build>
+		<finalName>webModule</finalName>
 		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<warName>${project.artifactId}</warName>
+				</configuration>
+			</plugin>
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
 		</plugins>
 	</build>
 
