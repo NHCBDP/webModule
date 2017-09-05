@@ -21,18 +21,29 @@ public class UserController {
     private UserService userService;
 
 
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    @RequestMapping(value = "/login",method = RequestMethod.GET)
     @ResponseBody
-    public String  userLogin(@RequestBody User user) {
+    public String  userLogin(@RequestParam("userName") String userName, @RequestParam("password") String password) {
+        User user = new User(userName,password);
         return userService.isLogin(user);
     }
 
 
-    @RequestMapping(value = "/register",method =RequestMethod.PUT)
+    @RequestMapping(value = "/loginOut",method = RequestMethod.GET)
+    @ResponseBody
+    public String  userLoginOut(@RequestParam("userName") String userName) {
+        return "success";
+    }
+
+
+    @RequestMapping(value = "/register",method =RequestMethod.POST)
     @ResponseBody
     public String  userRegister(@RequestBody User user) {
         return userService.isRegister(user);
     }
+
+
+
 
 
 }

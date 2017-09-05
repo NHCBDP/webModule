@@ -32,4 +32,9 @@ public class UserServiceImpl implements UserService {
         return userDao.insert(user) == 1 ?"success":"error";
     }
 
+    @Override
+    public Object getDataSourceByTableName(String tableName) {
+        return userDao.findAllForDs1(tableName);
+    }
+
 }

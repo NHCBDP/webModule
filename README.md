@@ -24,10 +24,8 @@ war:mvn -Dmaven.test.skipt=true package
 
 #登录：
 
- POST请求： http://localhost:8011/webModule/user/login
- 
- 参数：{"userName":"wbliu","password":"123456"}
- 
+ GET请求： http://localhost:8011/webModule/user/login?userName=wbliu&password=e10adc3949ba59abbe56e057f20f883e
+
  响应：success 或者 error
    
    
@@ -36,9 +34,15 @@ war:mvn -Dmaven.test.skipt=true package
 
 #注册：
 
- PUT请求： http://localhost:8011/webModule/user/register
+ POST请求： http://localhost:8011/webModule/user/register
  
  参数：{"userName":"test001","password":"123456"}
  
  响应：success 或者 error 或者 User already exist
+
+
+#登出
+GET 请求：http://localhost:8011/webModule/user/loginOut?userName=wbliu
+
+响应：success 或者 error
 

@@ -1,6 +1,8 @@
 package NHCBDP.webModule.Dao;
 
 import NHCBDP.webModule.Domain.User;
+import NHCBDP.webModule.Domain.UserTest;
+import NHCBDP.webModule.DynamicDataSource.TargetDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -48,6 +50,18 @@ public class UserDaoImpl implements UserDao {
         return jdbcTemplate.query("select * from users", new UserRowMapper());
     }
 
+
+    @Override
+    @TargetDataSource(name = "ds1")
+    @Transactional(readOnly = true)
+    public List<UserTest> findAllForDs1(String tableName) {
+
+        String sql = "SELECT  * FROM "+tableName;
+        return jdbcTemplate.query(sql,new UserTestRowMapper());
+    }
+
+
+
     @Override
     @Transactional(readOnly = true)
     public User findUserById(int id) {
@@ -86,6 +100,18 @@ class UserRowMapper implements RowMapper<User> {
 
         return user;
     }
+}
 
 
+class UserTestRowMapper implements RowMapper<UserTest> {
+
+    @Override
+    public UserTest mapRow(ResultSet rs, int rowNum) throws SQLException {
+        UserTest user = new UserTest();
+
+        user.setId(rs.getInt("id"));
+        user.setName(rs.getString("name"));
+        user.setPassword(rs.getString("password"));
+        return user;
+    }
 }

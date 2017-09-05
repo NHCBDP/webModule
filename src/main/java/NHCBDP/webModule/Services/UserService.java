@@ -14,4 +14,6 @@ public interface  UserService {
     String isLogin(User user);
 
     String isRegister(User user);
+
+    Object  getDataSourceByTableName(String tableName);
 }

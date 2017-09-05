@@ -1,6 +1,8 @@
 package NHCBDP.webModule.Dao;
 
 import NHCBDP.webModule.Domain.User;
+import NHCBDP.webModule.Domain.UserTest;
+import NHCBDP.webModule.DynamicDataSource.TargetDataSource;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -17,6 +19,10 @@ public interface UserDao {
 
     //@Transactional(readOnly = true)
     List<User> findAll();
+
+    @TargetDataSource(name = "ds1")
+    @Transactional(readOnly = true)
+    List<UserTest> findAllForDs1(String tableName);
 
     //@Transactional(readOnly = true)
     User findUserById(int id);
