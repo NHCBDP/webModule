@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public String isRegister(User user) {
 
-        if (userDao.selectByUserNameAndPassword(user)!=null)
+        if (userDao.selectByUserName(user.getUserName()) >=1)
             return "User already exist!";
 
         return userDao.insert(user) == 1 ?"success":"error";

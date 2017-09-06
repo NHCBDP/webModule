@@ -36,4 +36,6 @@ public interface UserDao {
 
     @Transactional
     void update(User user);
+
+    int selectByUserName(String userName);
 }

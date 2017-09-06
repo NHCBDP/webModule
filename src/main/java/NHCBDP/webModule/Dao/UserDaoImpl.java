@@ -83,6 +83,17 @@ public class UserDaoImpl implements UserDao {
                 "update users set name=?,email=? where id=?",
                 new Object[]{user.getUserName(), user.getPassword(),user.getId()});
     }
+
+    @Override
+    public int selectByUserName(String userName) {
+        String sql = "select * from users where userName='"+userName+"'";
+
+        List<User> userList = jdbcTemplate.query(sql,new UserRowMapper());
+
+
+        return userList.size();
+    }
+
 }
 
 
