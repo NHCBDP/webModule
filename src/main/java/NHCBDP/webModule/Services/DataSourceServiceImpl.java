@@ -2,20 +2,20 @@ package NHCBDP.webModule.Services;
 
 import NHCBDP.webModule.Dao.DataSourceDao;
 import NHCBDP.webModule.Domain.DbTablesBean;
+import NHCBDP.webModule.Domain.RequestNote;
 import NHCBDP.webModule.Domain.TableFieldBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author wbliu
  * @create 2017-09-05 16:35
  **/
 
+@Transactional
 @Service("dataSourceService")
 public class DataSourceServiceImpl implements DataSourceService{
 
@@ -42,6 +42,11 @@ public class DataSourceServiceImpl implements DataSourceService{
         resMap.put("NHCBDP_test_db",getTableListByDataSourceName("NHCBDP_test_db"));
 
         return resMap;
+    }
+
+    @Override
+    public String commitRequestNote(RequestNote requestNote) {
+        return dataSourceDao.insertRequestNote(requestNote);
     }
 
     private List<Map<String,List<TableFieldBean>>> getTableListByDataSourceName(String dbName) {

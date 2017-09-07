@@ -1,5 +1,6 @@
 package NHCBDP.webModule.Controllers;
 
+import NHCBDP.webModule.Domain.RequestNote;
 import NHCBDP.webModule.Domain.TableFieldBean;
 import NHCBDP.webModule.Services.DataSourceService;
 import NHCBDP.webModule.Services.UserService;
@@ -50,6 +51,13 @@ public class BusinessController {
     public Map<String,List<Map<String,List<TableFieldBean>>>> getAllTableDescribe(){
         return dataSourceService.getAllTableDescribe();
     }
+
+
+    @RequestMapping(value = "/commitRequestNote",method = RequestMethod.POST)
+    public String  commitRequestNote(@RequestBody RequestNote requestNote){
+        return dataSourceService.commitRequestNote(requestNote);
+    }
+
 
 
 

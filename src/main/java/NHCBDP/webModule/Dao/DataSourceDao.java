@@ -1,6 +1,7 @@
 package NHCBDP.webModule.Dao;
 
 import NHCBDP.webModule.Domain.DbTablesBean;
+import NHCBDP.webModule.Domain.RequestNote;
 import NHCBDP.webModule.Domain.TableFieldBean;
 import NHCBDP.webModule.DynamicDataSource.TargetDataSource;
 
@@ -23,4 +24,6 @@ public interface DataSourceDao {
     List<DbTablesBean> getTableListFromDataSource2();
 
     List<TableFieldBean>  getTableDescribe2(String tableName);
+
+    String insertRequestNote(RequestNote requestNote);
 }

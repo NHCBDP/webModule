@@ -1,5 +1,6 @@
 package NHCBDP.webModule.Services;
 
+import NHCBDP.webModule.Domain.RequestNote;
 import NHCBDP.webModule.Domain.TableFieldBean;
 
 import java.util.List;
@@ -16,4 +17,6 @@ public interface DataSourceService {
     List  getAllTableDescribe(String dbName);
 
     Map<String,List<Map<String,List<TableFieldBean>>>>  getAllTableDescribe();
+
+    String   commitRequestNote(RequestNote requestNote);
 }

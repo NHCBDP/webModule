@@ -264,6 +264,23 @@ GET请求 ：http://localhost:8011/webModule/business/allDataSourceDescribe
     ]
 }
 
+------------------------------------------
+
+#新增一条“申请单”记录；
+
+POST请求：http://localhost:8011/webModule/business/commitRequestNote
+参数：{"requestName":"test002","requestUserId":"111111","companyName":"company","illustration":"test","content":"select * from test","userName":"wbliu"}
+
+响应：64ad45370ab745b9b7e58daf7fcd7eb1   或者 add error
+
+
+------------------------------------
+#获得用户的所有“申请单”记录；
+GET请求：http://localhost:8011/webModule/business/commitRequestNote
+
+
+
+
 
 
 

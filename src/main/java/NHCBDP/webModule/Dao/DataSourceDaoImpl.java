@@ -1,6 +1,7 @@
 package NHCBDP.webModule.Dao;
 
 import NHCBDP.webModule.Domain.DbTablesBean;
+import NHCBDP.webModule.Domain.RequestNote;
 import NHCBDP.webModule.Domain.TableFieldBean;
 import NHCBDP.webModule.DynamicDataSource.TargetDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,9 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @author wbliu
@@ -57,6 +60,20 @@ public class DataSourceDaoImpl implements DataSourceDao {
     public List<TableFieldBean> getTableDescribe2(String tableName) {
         String sql = "describe "+tableName;
         return jdbcTemplate.query(sql,new TableStructBeanRowMapper());
+    }
+
+    @Override
+    public String insertRequestNote(RequestNote requestNote) {
+        String  requestId = UUID.randomUUID().toString().replace("-","");
+
+        String inserSql = "INSERT INTO requestNote VALUES(?,?,?,?,?,?,0,?)";
+        Object [] valueArray = new Object[]{requestId,requestNote.getRequestName(),requestNote.getRequestUserId(),requestNote.getCompanyName(),requestNote.getIllustration(),requestNote.getContent(),requestNote.getUserName()};
+        int [] typeArray = new int[]{Types.VARCHAR,Types.VARCHAR,Types.VARCHAR,Types.VARCHAR,Types.VARCHAR,Types.VARCHAR,Types.VARCHAR};
+
+
+
+
+        return jdbcTemplate.update(inserSql,valueArray,typeArray) ==1? requestId:"add error";
     }
 
 
