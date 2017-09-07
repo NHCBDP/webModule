@@ -76,6 +76,15 @@ public class DataSourceDaoImpl implements DataSourceDao {
         return jdbcTemplate.update(inserSql,valueArray,typeArray) ==1? requestId:"add error";
     }
 
+    @Override
+    public List<RequestNote> selectRequestNote(String userName) {
+        String sql = "select * from requestNote WHERE userName='"+userName+"'";
+
+
+
+        return jdbcTemplate.query(sql,new RequestNoteRowMapper() );
+    }
+
 
     class TableStructBeanRowMapper implements RowMapper<TableFieldBean> {
 
@@ -104,4 +113,26 @@ public TableFieldBean mapRow(ResultSet rs, int rowNum) throws SQLException {
             return dbTablesBean;
         }
     }
+
+    class RequestNoteRowMapper implements RowMapper<RequestNote> {
+
+        @Override
+        public RequestNote mapRow(ResultSet rs, int rowNum) throws SQLException {
+            RequestNote requestNote = new RequestNote();
+
+            requestNote.setFormId(rs.getString("formId"));
+            requestNote.setRequestName(rs.getString("requestName"));
+            requestNote.setRequestUserId(rs.getString("requestUserId"));
+            requestNote.setCompanyName(rs.getString("companyName"));
+            requestNote.setIllustration(rs.getString("illustration"));
+            requestNote.setContent(rs.getString("content"));
+            requestNote.setStatus(rs.getInt("status"));
+            requestNote.setUserName(rs.getString("userName"));
+
+
+            return requestNote;
+        }
+    }
+
+
 }

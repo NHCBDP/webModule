@@ -49,6 +49,14 @@ public class DataSourceServiceImpl implements DataSourceService{
         return dataSourceDao.insertRequestNote(requestNote);
     }
 
+    @Override
+    public List<RequestNote> getRequestNote(String userName) {
+
+
+
+        return dataSourceDao.selectRequestNote(userName);
+    }
+
     private List<Map<String,List<TableFieldBean>>> getTableListByDataSourceName(String dbName) {
         List<Map<String,List<TableFieldBean>>> tableList = new ArrayList<Map<String, List<TableFieldBean>>>();
 

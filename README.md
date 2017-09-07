@@ -276,7 +276,45 @@ POST请求：http://localhost:8011/webModule/business/commitRequestNote
 
 ------------------------------------
 #获得用户的所有“申请单”记录；
-GET请求：http://localhost:8011/webModule/business/commitRequestNote
+GET请求：http://localhost:8011/webModule/business/getRequestNote/{userName}
+
+响应：
+[
+    {
+        "formId": "27bfe9758f65430cb6908a9f43d19f31",
+        "requestName": "test002",
+        "requestUserId": "111111",
+        "companyName": "company",
+        "illustration": "test",
+        "content": "select * from test",
+        "status": 0,
+        "userName": "wbliu"
+    },
+    {
+        "formId": "64ad45370ab745b9b7e58daf7fcd7eb1",
+        "requestName": "test002",
+        "requestUserId": "111111",
+        "companyName": "company",
+        "illustration": "test",
+        "content": "select * from test",
+        "status": 0,
+        "userName": "wbliu"
+    },
+    {
+        "formId": "f3b2a9031f03410d90bfacd11f434745",
+        "requestName": "test",
+        "requestUserId": "111111",
+        "companyName": "company",
+        "illustration": "test",
+        "content": "select * from test",
+        "status": 0,
+        "userName": "wbliu"
+    }
+]
+
+-------------------------------------------------
+
+
 
 
 

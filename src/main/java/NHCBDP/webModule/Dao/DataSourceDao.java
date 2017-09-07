@@ -26,4 +26,6 @@ public interface DataSourceDao {
     List<TableFieldBean>  getTableDescribe2(String tableName);
 
     String insertRequestNote(RequestNote requestNote);
+
+    List<RequestNote>  selectRequestNote(String userName);
 }

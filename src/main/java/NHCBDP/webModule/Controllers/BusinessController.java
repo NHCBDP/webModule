@@ -58,6 +58,11 @@ public class BusinessController {
         return dataSourceService.commitRequestNote(requestNote);
     }
 
+    @RequestMapping(value = "/getRequestNote/{userName}",method = RequestMethod.GET)
+    public List<RequestNote>  getRequestNote(@PathVariable("userName") String userName){
+        return dataSourceService.getRequestNote(userName);
+    }
+
 
 
 

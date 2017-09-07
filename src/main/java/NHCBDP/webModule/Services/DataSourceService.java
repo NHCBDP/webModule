@@ -19,4 +19,6 @@ public interface DataSourceService {
     Map<String,List<Map<String,List<TableFieldBean>>>>  getAllTableDescribe();
 
     String   commitRequestNote(RequestNote requestNote);
+
+    List<RequestNote>  getRequestNote(String userName);
 }
