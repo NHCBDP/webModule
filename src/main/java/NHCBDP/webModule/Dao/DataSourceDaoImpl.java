@@ -85,6 +85,12 @@ public class DataSourceDaoImpl implements DataSourceDao {
         return jdbcTemplate.query(sql,new RequestNoteRowMapper() );
     }
 
+    @Override
+    public List<RequestNote> selectRequestNoteByRequestNoteId(String requestNoteId) {
+        String sql = "select * from requestNote WHERE formId ='"+requestNoteId+"'";
+        return jdbcTemplate.query(sql,new RequestNoteRowMapper() );
+    }
+
 
     class TableStructBeanRowMapper implements RowMapper<TableFieldBean> {
 

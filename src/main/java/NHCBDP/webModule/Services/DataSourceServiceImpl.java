@@ -51,10 +51,12 @@ public class DataSourceServiceImpl implements DataSourceService{
 
     @Override
     public List<RequestNote> getRequestNote(String userName) {
-
-
-
         return dataSourceDao.selectRequestNote(userName);
+    }
+
+    @Override
+    public List<RequestNote> getRequestNoteByRequsetNoteId(String requestNoteId) {
+        return dataSourceDao.selectRequestNoteByRequestNoteId(requestNoteId);
     }
 
     private List<Map<String,List<TableFieldBean>>> getTableListByDataSourceName(String dbName) {

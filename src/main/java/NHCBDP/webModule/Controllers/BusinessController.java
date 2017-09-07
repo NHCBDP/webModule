@@ -63,6 +63,11 @@ public class BusinessController {
         return dataSourceService.getRequestNote(userName);
     }
 
+    @RequestMapping(value = "/getRequestNoteByRequestNoteId/{requestNoteId}",method = RequestMethod.GET)
+    public List<RequestNote>  getRequestNoteByRequestNoteId(@PathVariable("requestNoteId") String requestNoteId){
+        return dataSourceService.getRequestNoteByRequsetNoteId(requestNoteId);
+    }
+
 
 
 

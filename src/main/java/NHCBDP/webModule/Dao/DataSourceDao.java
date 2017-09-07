@@ -28,4 +28,6 @@ public interface DataSourceDao {
     String insertRequestNote(RequestNote requestNote);
 
     List<RequestNote>  selectRequestNote(String userName);
+
+    List<RequestNote>  selectRequestNoteByRequestNoteId(String requestNoteId);
 }

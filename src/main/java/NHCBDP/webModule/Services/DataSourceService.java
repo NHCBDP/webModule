@@ -21,4 +21,6 @@ public interface DataSourceService {
     String   commitRequestNote(RequestNote requestNote);
 
     List<RequestNote>  getRequestNote(String userName);
+
+    List<RequestNote>  getRequestNoteByRequsetNoteId(String requestNoteId);
 }
