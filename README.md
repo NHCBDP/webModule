@@ -8,11 +8,11 @@ spring-boot:1.5.6
 mysql:5.x
 centos 7
 
+package  :mvn -Dmaven.test.skip=true package
 
-war:mvn -Dmaven.test.skip=true package
+run jar : java -jar webModule.jar
 
-
-
+run port : 8011
 
 
 

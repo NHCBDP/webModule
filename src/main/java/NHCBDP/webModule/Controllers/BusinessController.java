@@ -17,7 +17,7 @@ import java.util.Map;
  **/
 
 @RestController
-@RequestMapping("/business")
+@RequestMapping("/webModule/business")
 public class BusinessController {
 
     @Autowired
